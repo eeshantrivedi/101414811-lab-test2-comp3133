@@ -49,15 +49,15 @@
         <h3 matSubheader>Wand</h3>
         <mat-list-item role="listitem">
           <span matListItemTitle>Wood:</span>
-          <span matListItemLine>{{ character.wand?.wood || 'N/A' }}</span>
+          <span matListItemLine>{{ character.wand && character.wand.wood || 'N/A' }}</span>
         </mat-list-item>
         <mat-list-item role="listitem">
           <span matListItemTitle>Core:</span>
-          <span matListItemLine>{{ character.wand?.core || 'N/A' }}</span>
+          <span matListItemLine>{{ character.wand && character.wand.core || 'N/A' }}</span>
         </mat-list-item>
         <mat-list-item role="listitem">
           <span matListItemTitle>Length:</span>
-          <span matListItemLine>{{ character.wand?.length !== null ? (character.wand?.length + ' inches') : 'N/A' }}</span>
+          <span matListItemLine>{{ character.wand && character.wand.length !== null ? (character.wand.length + ' inches') : 'N/A' }}</span>
         </mat-list-item>
       </mat-list>
     </mat-card-content>

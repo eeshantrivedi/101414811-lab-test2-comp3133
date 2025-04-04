@@ -11,7 +11,7 @@ export interface Character {
   house: string;
   wizard: boolean;
   ancestry: string;
-  wand: {
+  wand?: {
     wood: string;
     core: string;
     length: number | null; // Length can sometimes be null
