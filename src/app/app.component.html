@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>Harry Potter Characters App - Eeshan Trivedi (101414811)</span>
+  <span class="spacer"></span> <!-- Pushes buttons to the right -->
+  <button mat-button routerLink="/characters" routerLinkActive="active-link">All Characters</button>
+  <button mat-button routerLink="/filter-by-house" routerLinkActive="active-link">Filter by House</button>
+</mat-toolbar>
+
+<main class="content">
+  <router-outlet></router-outlet> <!-- Where routed components will be displayed -->
+</main>

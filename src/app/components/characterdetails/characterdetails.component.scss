@@ -1,0 +1,76 @@
+.container {
+  padding: 20px;
+  max-width: 800px; // Limit width for better readability
+  margin: 0 auto; // Center the container
+}
+
+.back-button {
+  margin-bottom: 20px;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px; /* Adjust as needed */
+  margin-top: 50px;
+
+  mat-spinner {
+    margin-bottom: 16px;
+  }
+}
+
+.error-message {
+  margin-top: 20px;
+  mat-card {
+    background-color: #f8d7da; // Light red background for errors
+    color: #721c24; // Dark red text
+  }
+}
+
+.details-card {
+  width: 100%;
+
+  .details-image {
+    max-height: 400px; // Limit image height
+    object-fit: contain; // Show the whole image, possibly with letterboxing
+    width: 100%; // Make image responsive
+    background-color: #f0f0f0; // Background for image area
+    margin-bottom: 16px;
+  }
+
+  mat-card-content {
+    padding-top: 16px;
+  }
+
+  mat-list-item {
+    // Adjust height for better spacing if needed
+    height: auto !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  span[matListItemTitle] {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6); // Slightly muted title color
+    width: 100px; // Fixed width for titles
+    flex-shrink: 0; // Prevent title from shrinking
+  }
+
+   span[matListItemLine] {
+    white-space: normal; // Allow text wrapping
+    padding-left: 10px; // Add space between title and line
+   }
+
+  h3[matSubheader] {
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}

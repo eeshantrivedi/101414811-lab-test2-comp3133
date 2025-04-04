@@ -1,0 +1,65 @@
+.container {
+  padding: 20px;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px; /* Adjust as needed */
+  margin-top: 50px;
+
+  mat-spinner {
+    margin-bottom: 16px;
+  }
+}
+
+.character-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  mat-card-header {
+    flex-shrink: 0; // Prevent header from shrinking
+  }
+
+  .character-image {
+    object-fit: cover; // Scale the image nicely
+    height: 250px; // Fixed height for images
+    flex-grow: 1; // Allow image to take up space
+    background-color: #eee; // Placeholder background
+  }
+
+  mat-card-actions {
+    margin-top: auto; // Push actions to the bottom
+    padding: 8px 16px !important; // Ensure padding
+    flex-shrink: 0; // Prevent actions from shrinking
+  }
+}
+
+.no-characters {
+  text-align: center;
+  margin-top: 50px;
+  color: grey;
+}
+
+// Responsive adjustments for grid columns
+@media (max-width: 1200px) {
+  mat-grid-list {
+    grid-template-columns: repeat(3, 1fr) !important; // Override inline style
+  }
+}
+
+@media (max-width: 900px) {
+  mat-grid-list {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  mat-grid-list {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}

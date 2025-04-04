@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Filter Characters by House - Eeshan Trivedi (101414811)</h2>
+
+  <!-- House Selection Dropdown -->
+  <mat-form-field appearance="fill">
+    <mat-label>Select a House</mat-label>
+    <mat-select [(ngModel)]="selectedHouse" (selectionChange)="onHouseChange()">
+      <mat-option value="">-- Select a House --</mat-option> <!-- Optional: Allow clearing selection -->
+      <mat-option *ngFor="let house of houses" [value]="house">
+        {{ house }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <mat-spinner></mat-spinner>
+    <p>Loading characters for {{ selectedHouse }}...</p>
+  </div>
+
+  <!-- Character Grid -->
+  <mat-grid-list cols="4" rowHeight="450px" gutterSize="16px" *ngIf="!isLoading && characters.length > 0">
+    <mat-grid-tile *ngFor="let character of characters">
+      <mat-card class="character-card">
+        <mat-card-header>
+          <mat-card-title>{{ character.name }}</mat-card-title>
+          <mat-card-subtitle>{{ character.house || 'No House' }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="character.image || 'assets/placeholder.png'" [alt]="character.name" class="character-image">
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="viewDetails(character.id)">View Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <!-- Message if no characters are found -->
+  <div *ngIf="!isLoading && characters.length === 0 && selectedHouse" class="no-characters">
+    <p>No characters found for {{ selectedHouse }}.</p>
+  </div>
+   <!-- Initial message before selection -->
+   <div *ngIf="!isLoading && !selectedHouse" class="no-characters">
+    <p>Please select a house to view characters.</p>
+  </div>
+</div>

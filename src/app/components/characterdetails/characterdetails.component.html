@@ -1,0 +1,65 @@
+<div class="container">
+  <h2>Character Details - Eeshan Trivedi (101414811)</h2>
+  <!-- Back Button -->
+  <button mat-raised-button color="primary" (click)="goBack()" class="back-button">
+    &larr; Back
+  </button>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <mat-spinner></mat-spinner>
+    <p>Loading character details...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="!isLoading && errorMessage" class="error-message">
+    <mat-card>
+      <mat-card-content>
+        <p>{{ errorMessage }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Character Details Card -->
+  <mat-card *ngIf="!isLoading && character && !errorMessage" class="details-card">
+    <mat-card-header>
+      <mat-card-title>{{ character.name }}</mat-card-title>
+      <mat-card-subtitle>{{ character.actor || 'Actor not specified' }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="character.image || 'assets/placeholder.png'" [alt]="character.name" class="details-image">
+    <mat-card-content>
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+          <span matListItemTitle>Species:</span>
+          <span matListItemLine>{{ character.species || 'N/A' }}</span>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <span matListItemTitle>House:</span>
+          <span matListItemLine>{{ character.house || 'N/A' }}</span>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <span matListItemTitle>Wizard:</span>
+          <span matListItemLine>{{ character.wizard ? 'Yes' : 'No' }}</span>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <span matListItemTitle>Ancestry:</span>
+          <span matListItemLine>{{ character.ancestry || 'N/A' }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>Wand</h3>
+        <mat-list-item role="listitem">
+          <span matListItemTitle>Wood:</span>
+          <span matListItemLine>{{ character.wand?.wood || 'N/A' }}</span>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <span matListItemTitle>Core:</span>
+          <span matListItemLine>{{ character.wand?.core || 'N/A' }}</span>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <span matListItemTitle>Length:</span>
+          <span matListItemLine>{{ character.wand?.length !== null ? (character.wand?.length + ' inches') : 'N/A' }}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

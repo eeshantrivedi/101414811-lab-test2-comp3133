@@ -1,0 +1,25 @@
+mat-toolbar {
+  position: sticky; // Keep toolbar at the top
+  top: 0;
+  z-index: 1000; // Ensure it's above other content
+}
+
+.spacer {
+  flex: 1 1 auto; // Fills available space
+}
+
+// Style for the active navigation link
+button.active-link {
+  background-color: rgba(255, 255, 255, 0.2); // Subtle highlight for active link
+}
+
+.content {
+  padding: 20px; // Add padding around the main content area
+}
+
+// Ensure the main content area takes up available space if needed
+// main {
+//   display: flex;
+//   flex-direction: column;
+//   flex-grow: 1;
+// }
